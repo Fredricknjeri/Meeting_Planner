@@ -1,0 +1,32 @@
+ {% extends 'base.html' %}
+
+{% block title %}Welcome{% endblock title %}
+
+{% block content %}
+
+    <h1>Welcome to the meeting Planner</h1>
+    <p>This is the Demo application for the course
+    <em>Django: Getting Started</em>
+    on <a href="https://www.pluralsight.com"> Pluralsight</a> </p>
+
+    <h2>
+        Meetings
+    </h2>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">
+                {{meeting.title}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <h2>
+        <a href="{% url 'new'%}">Add new meeting</a>
+    </h2>
+    <h2>
+        <a href="{% url 'rooms' %}">Available Rooms</a>
+    </h2>
+
+
+{% endblock content %}
